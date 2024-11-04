@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float playerBulletSpeed = 10f;
     [SerializeField] GameObject playerBullet;
-
+    [SerializeField] GameObject playerGun;
     void Start()
     {
         
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     private void OnFire()
     {
-       GameObject bullet = Instantiate(playerBullet, transform.position, transform.rotation);
+       GameObject bullet = Instantiate(playerBullet, playerGun.transform.position, transform.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * playerBulletSpeed, ForceMode2D.Impulse);
     }
